@@ -5,7 +5,7 @@ const ImageCard = ({small, regular, alt, modalOpen }) => {
   return (
     <li className={s.galleryItem} onClick={()=>modalOpen(regular)}>
     <div className={s.innerCont}>
-      <img  height="200" width="312" src={small} alt={alt} />
+      <img  width="300" height="200" src={small} alt={alt} />
     </div>
     </li>
   )};

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
@@ -19,21 +19,23 @@ const [modalIsOpen, setIsOpen] = useState(false);
 
 useEffect(()=>{
   ( async () => {
-    if (!query.trim()) {return};
-    try {
+
+if (!query.trim()) {return};
+
+try {
       setIsLoading(true);
       setIsError(false);
       const data =  await SearchByValue(query, page); 
       setArticles(prev => [...prev, ...data.results]);   
-    } catch (error) {
+    }
+catch (error) {
       setIsError(true);
       console.log(error.message);
-      
-    }finally{
+    }
+finally{
       setIsLoading(false);
     }
-} )();
-},[query, page])
+} )() },[query, page]);
 
 const handleChangeQuery = (newQuery) => {
   if(query === newQuery){return};
@@ -44,20 +46,18 @@ const handleChangeQuery = (newQuery) => {
 
 const changePageOnClick = () =>{
   setPage(prev => prev + 1);
-}
+};
 
 const modalOpen = (newImg) =>{
   setSelectedImage(newImg);
   setIsOpen(true);
-}
+};
 
 const modalClose = () =>{
   setIsOpen(false);
-}
+};
 
-
-
-  return (
+return (
 <>
 <SearchBar onSearchChange={handleChangeQuery}/> 
 { articles.length > 0 && <ImageGallery articles={articles} modalOpen={modalOpen} /> }
@@ -66,7 +66,6 @@ const modalClose = () =>{
 { articles.length > 0 && <LoadMoreBtn  changePage={changePageOnClick}/> }
 <ImageModal selectedImage={selectedImage}  onClose={modalClose} isOpen={modalIsOpen}/>
 </>
-)
-}
+)};
 
 export default App;

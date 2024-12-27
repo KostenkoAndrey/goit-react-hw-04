@@ -3,14 +3,15 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
+    padding: 0 25px;
 }
 .galleryItem{
-   
-    border-radius: 6px;
-    border: 1px solid grey;
+    border-radius: 12px;
     flex-basis: calc((100% - 30px) / 4);
 }
 
-.innerCont{
-overflow: hidden;
+.innerCont {
+    overflow: hidden; 
+    border-radius: 20px;
 }
+
