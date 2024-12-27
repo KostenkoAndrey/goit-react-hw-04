@@ -8,7 +8,7 @@ const [ value, setValue ] = useState("");
 const handleSubmit = (evt) => {
   evt.preventDefault();
   onSearchChange(value);
-  if(!value){
+  if(!value.trim()){
     toast.success("Please fill it out!",{
       duration: 1000,
       position: 'top-center',
